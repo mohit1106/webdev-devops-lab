@@ -1,0 +1,18 @@
+pwd
+cd       cd ..          cd ../..
+ls       ls -la
+mkdir
+touch
+cat abc.txt  - prints the content of the file
+vi abc.txt         i - insert mode            esc :wq!  - to save & exit vim
+mv file_or_folder destination_path
+cp 
+rm file.txt            rm -r folder
+
+
+
+
+
+node  - to enter in node shell locally
+node index.js   - to run the javascript file
+npm

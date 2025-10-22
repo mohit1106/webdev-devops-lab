@@ -1,0 +1,13 @@
+relationships in mongo
+
+
+salting in passwords hashing   - used bcrypt
+
+
+
+error handling when user already exist but signup with same mail - used try catch in /signup
+
+
+
+input/schema validation  - used zod schema library  in /signup
+also tells what was missing and wrong with the input body

@@ -1,0 +1,35 @@
+git init
+git status
+git add .             - from working directory to staging area
+git commit -m "gfishf"          - staging area to repository
+
+git remote -v            - to check if there is any remote repo is already assigned
+git remote add origin <whole url.git>
+git push origin master 
+
+
+
+
+git log
+
+git diff chapter3.txt - shows all the difference between previous saved version and current
+git checkout chapter3.txt - rollback to last commited checkpoint
+
+git rm --cached -r .      - removing all files from staging area i.e remove from tracking system
+
+git clone .....<link with .git>..........
+
+
+
+git branch alien-plot     - creates another branch onward the previous commit
+git branch     - shows which branch we are working on (normally main/master)
+git checkout alien-plot        - switch to alien-plot branch
+git merge alien-plot        -merge the alien-plot branch in main, but make sure youre in main branch
+git diff alien-plot        - if inside main, then shows what isnt in main but present in alien-plot
+git branch -d alien-plot     - when inside main, deletes the alien-plot branch, merged things will sustain
+
+
+git log --merge             - produce the list of commits that are causing th merge conflict
+git reset --mixed           - used to undo changes to the working directory and staging area
+git reset                   - at merge conflict, to reset the conflictedd files to original state
+
