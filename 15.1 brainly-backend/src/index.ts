@@ -2,13 +2,14 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import { ContentModel, LinkModel, UserModel } from "./db.js";
-import { JWT_PASSWORD } from "./config.js";
 import { userMiddleware } from "./middleware.js";
 import { random } from "./utils.js";
+import cors from "cors";
+import { JWT_PASSWORD } from "./config.js";
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 
 
 
@@ -185,7 +186,7 @@ app.get("/api/v1/brain/:shareLink", async (req, res) => {
 
 
 async function main() {
-    await mongoose.connect("mongdb.net/brainly-cohort")
+    await mongoose.connect("mongodb+srv://@cluster0.shqa5hl.mongodb.net/brainly-cohort")
     app.listen(3000); // only starts if database is up
     console.log("listening on port 3000")
 }

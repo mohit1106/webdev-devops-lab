@@ -1,27 +1,17 @@
-import './App.css'
-import { Button } from './components/Button'
-import { Card } from './components/Card'
-import { PlusIcon } from './icons/PlusIcon'
-import { ShareIcon } from './icons/ShareIcon'
+import { Dashboard } from "./pages/dashboard"
+import { Signin } from "./pages/Signin"
+import { Signup } from "./pages/Signup"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+
 function App() {
-
-  return (
-    <>
-      <Button
-          variant='primary' 
-          text='Add Content' 
-          startIcon={<PlusIcon />}
-      ></Button>
-
-      <Button
-          variant='secondary' 
-          text='Share Brain'
-          startIcon={<ShareIcon />}
-      ></Button>
-
-      <Card title='yokoso' link='https://www.google.com' type='youtube'/>
-    </>
-  )
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </BrowserRouter>
 }
 
 export default App

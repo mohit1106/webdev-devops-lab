@@ -11,12 +11,11 @@ const UserSchema = new Schema({
 
 
 
-const contentTypes = ['image', 'video', 'article', 'audio'];
 const ContentSchema = new Schema({
-    title: { type: String, required: true },
-    link: { type: String, required: true },
+    title: String,
+    link: String,
     tags: [{type: mongoose.Types.ObjectId, ref: 'Tag'}],
-    type: { type: String, enum: contentTypes, required: true },
+    type: String,
     userId: {type: mongoose.Types.ObjectId, ref: 'User', required: true },
 });
 
