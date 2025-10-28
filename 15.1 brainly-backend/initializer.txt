@@ -15,4 +15,8 @@ npm install @types/express
 npm install @types/jsonwebtoken
 
 
+
+to run -> add script in package.json
+"dev": "tsc -b && node ./dist/index.js"
+then run
 npm run dev
