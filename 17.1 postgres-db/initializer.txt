@@ -11,7 +11,6 @@ change type in tsconfig.json
 change type in package.json
 "type": "module",
 
-npm install @types/express
 npm install pg @types/pg
 
 
@@ -20,6 +19,3 @@ to run -> add script in package.json
 "dev": "tsc -b && node ./dist/index.js"
 then run
 npm run dev
-
-
-postman - ws://localhost:8080 (in websockets)
