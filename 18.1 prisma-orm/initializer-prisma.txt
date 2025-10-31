@@ -1,0 +1,46 @@
+
+npm init -y
+npm i -D typescript
+npx tsc --init
+
+Change rootDir and outDir
+"rootDir": "./src",
+"outDir": "./dist"
+change type in tsconfig.json
+"types": ["node"],
+
+
+change type in package.json
+"type": "module",
+
+
+npm install -D @types/node
+npm install @types/express
+
+
+npm install prisma @prisma/client
+npx prisma init
+change DATABASE_URL in .env (grab connection string from neon.tech for postgres)
+add `import "dotenv/config";` to `prisma.config.ts` file
+npm install dotenv
+
+in schema.prisma, in generator client, set 
+generator client {
+  provider = "prisma-client-js"
+  // remove output field
+}
+
+move prisma.config.ts   to src folder
+
+
+
+npx prisma migrate dev
+npx prisma generate   - to generate the client
+
+prisma dev
+
+
+to run -> add script in package.json
+"dev": "tsc -b && node ./dist/index.js"
+then run
+npm run dev

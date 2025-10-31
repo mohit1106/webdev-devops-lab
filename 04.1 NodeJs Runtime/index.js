@@ -9,6 +9,7 @@ const fs = require('fs');
 const { Command } = require('commander');
 const program = new Command();
 
+
 program
   .name('counter')
   .description('CLI to do file based tasks')
