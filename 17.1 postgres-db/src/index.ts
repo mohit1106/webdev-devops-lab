@@ -22,8 +22,6 @@ main();
 
 
 
-
-
 // seeing how sql injection works in application's databases
 import express from "express";
 const app = express();
@@ -34,6 +32,11 @@ app.post("/signup", async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
 
+    const city = req.body.city;
+    const country = req.body.country;
+    const street = req.body.street;
+    const pincode = req.body.pincode;
+
     try {
         // it'll be vulnerable to sql injection
         // const insertQuery = `INSERT INTO users (username, email, password) VALUES ('${username}', '${email}', '${password}')`;
@@ -41,15 +44,17 @@ app.post("/signup", async (req, res) => {
         // const response = await pgClient.query(insertQuery);
 
 
-        // to prevent sql injection do this
-        const insertQuery2 = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3);`
-        const response = await pgClient.query(insertQuery2, [username, email, password]);
-
+        const insertQuery = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id;`
+        const response = await pgClient.query(insertQuery, [username, email, password]);
+        
         res.json({
             message: "You have signed up"
         })
-    }
-    catch(e) {
-        // Error handling code should go here
+    
+    } catch(e) {
+        console.log(e);
+        res.json({
+            message: "Error while signing up"
+        })
     }
 });

@@ -1,0 +1,23 @@
+{
+  "name": "17.2-relations-transactions-joins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc -b && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.5",
+    "@types/pg": "^8.15.6",
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3"
+  }
+}
