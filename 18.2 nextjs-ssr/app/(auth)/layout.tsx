@@ -6,3 +6,5 @@ export default function AuthLayout({children}) {
         {children}
     </div>
 }
+// auth is in () because in url we can then directly go to localhost:3000/signin
+// instead of localhost:3000/auth/signin
