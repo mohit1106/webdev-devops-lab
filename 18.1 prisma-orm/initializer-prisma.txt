@@ -4,7 +4,7 @@ npm i -D typescript
 npx tsc --init
 
 Change rootDir and outDir
-"rootDir": "./src",
+"rootDir": "./src",    here, added include also, see tsconfig.json ,     for seed.ts, but no need if path changed in package.json
 "outDir": "./dist"
 change type in tsconfig.json
 "types": ["node"],
@@ -44,3 +44,27 @@ to run -> add script in package.json
 "dev": "tsc -b && node ./dist/index.js"
 then run
 npm run dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+for seed DB:
+put seed.ts in src if you dont wanna change tsconfig rootDir
+
+add in package.json
+"prisma": {
+    "seed": "ts-node src/seed.ts"
+},
+
+npm i -D ts-node typescript @types/node 
+
+npx prisma db seed
