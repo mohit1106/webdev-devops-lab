@@ -1,0 +1,18 @@
+npm install --global yarn
+yarn -v
+
+
+
+npx create-turbo@latest
+npm run dev     or   yarn dev
+yarn build
+
+
+
+
+
+
+
+
+turborepos are build system orchestrators only, monorepos are the workspaces that lets us
+import anything from anywhere.
