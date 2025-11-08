@@ -1,0 +1,1 @@
+// for rendering at  localhost:3000/blog2
