@@ -1,0 +1,17 @@
+initialise monorepo
+
+how to create ui components and reuse them in different apps
+exports
+chat app frontend
+
+added ws-server and http-server
+initialized package.json in both apps
+put common tsconfig.json in typescript-config in backends.json
+then modify tsconfig.json of servers to extend from typescript-config
+also put outDir and rootdir paths in each tsconfig.json
+modify package.json to have dev and build scripts 
+
+
+
+exploring  turbo.json. its build inputs and outputs and cache
+
