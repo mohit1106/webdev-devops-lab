@@ -15,3 +15,16 @@ modify package.json to have dev and build scripts
 
 exploring  turbo.json. its build inputs and outputs and cache
 
+for express backends build - so that the dist folder is considered as final output of that backend app
+overwrite global turbo.json in specific app by creating another turbo.json in that app(here ws-server)
+add this:   {
+                "extends": ["//"],
+                "tasks": {
+                  "build": {
+                    "outputs": ["dist/**"]
+                  }
+                }
+            }
+
+
+similarly react app also builds its final files in dist, so add overriding turbo.json just inside that react-app
