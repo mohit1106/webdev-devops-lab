@@ -1,0 +1,56 @@
+Deploying backend apps using aws ec2 and nginx reverse proxies
+
+
+
+
+create an instance on aws ec2
+select instance type
+key pair authentication system 
+    whoever have the private key on their device only him can ssh into the machine
+
+network setting:
+security groups - which ports are open
+    port 22 open for SSHing into machine (from anyone who has private key)
+    type as TCP for running http server
+
+
+to check default ssh/rsa keys:
+    ls ~/.ssh
+
+ssh into the machine:
+    1. move pem file in root dir, then Give ssh key permissions
+    chmod 700 mohitPrivateKey.pem          //700 = Owner can do everything, NO ONE else can do anything.
+
+    2. ssh into machine
+    ssh -i mohitPrivateKey.pem ubuntu@<public ip or domain>
+
+    3. Clone repo
+    git clone https://github.com/mohit/sum-server
+
+    If your aws machine shows you the following error, your aws machine doesn’t have access to the internet
+    Solution - https://www.tecmint.com/resolve-temporary-failure-in-name-resolution/
+    notion image
+    
+    4. Install Node.js💡
+    https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+    after that:
+        export NVM_DIR="$HOME/.nvm"
+        source ~/.bashrc
+        nvm install --lts
+
+    5. Install all dependencies
+    cd sum-server
+    npm install
+
+    6. Start backend
+    node index.js
+    make sure the server port running on and the port opened in instance are same.
+    
+now go to publicip:port   and its deployed, its not in https but in http
+
+http defaault port is 80,  so, http://publicip === http://publicip:80
+https defaault port is 443,  so, https://publicip === https://publicip:443
+so that we dont need to specify port in the url, but we cant run anything on 80 or 443, also only one service can run on it.
+so we use NGINX for reverse proxing.
+
+

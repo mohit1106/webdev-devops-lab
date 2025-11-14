@@ -1,0 +1,67 @@
+Installing nginx on ecr machine:
+    sudo apt update
+    sudo apt install nginx
+    This should start a nginx server on port 80
+    open the port 80 and 443 on ec2 machine security groups inbound rules
+
+for directing different domains on different ports from nginx(port 80):
+    get domain name from squarespace or goDaddy
+    add your public ip to domain address
+    now, now http://domain-address will go to domain-address:80, for now, NGINX is running on 80
+
+    configure NGINX to forward the requests from diffeent domains to different port, but by defult requests will come to port 80
+    then NGINX will forward the req to destination port by seeing the url-address:
+        
+        1. open the ec2 machine by SShing 
+        
+        2. Create reverse proxy:
+        sudo rm sudo vi /etc/nginx/nginx.conf
+        sudo vi /etc/nginx/nginx.conf
+
+        3. add this in nginx.conf file:
+        /////////////////////////////////////////////////////////////////////////
+            events {
+                # Event directives...
+            }
+            http {
+            	server {
+                listen 80;
+                server_name clothesapp.mohit.com;
+                location / {
+                    proxy_pass http://localhost:8080;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection 'upgrade';
+                    proxy_set_header Host $host;
+                    proxy_cache_bypass $http_upgrade;
+                }
+            	}
+
+                server {
+                listen 80;
+                server_name shoesapp.mohit.com;
+                location / {
+                    proxy_pass http://localhost:8081;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection 'upgrade';
+                    proxy_set_header Host $host;
+                    proxy_cache_bypass $http_upgrade;
+                }
+            	}
+            }
+        /////////////////////////////////////////////////////////////////////////////
+
+        by default clothesapp.mohit.com and shoesapp.mohit.com will come on port 80.
+        NGINX will forward each req from clothesapp.mohit.com to port 8080.
+        NGINX will forward each req from shoesapp.mohit.com to port 8081.
+
+        4. for reloadin:
+        sudo nginx -s reload
+
+
+        Start the Backend server
+        node index.js
+
+        Visit the website
+        http://clothesapp.mohit.com

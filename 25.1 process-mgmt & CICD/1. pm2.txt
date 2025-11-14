@@ -1,0 +1,15 @@
+1. create a new ec2 instance
+2. run a express backend(node index.js) on ec2 machine after installing npm and all
+3. now if you kill the process on the machine, the server will stop also, but pm2 will restart it.
+4. to use pm2:
+    sudo npm i -g pm2
+    pm2 start index.js
+
+    commands to understand:
+        curl localhost:3000 - similar to postman but for terminal
+        lsof -i :3000 -  this gives you the process id for a given port
+        kill <PID>  - kill the process
+
+        pm2 examples  - shows all the pm2 commands
+        pm2 list  - shows all processes runnning with pm2
+        pm2 delete app  - to stop the app process

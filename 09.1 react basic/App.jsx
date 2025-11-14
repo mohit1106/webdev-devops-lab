@@ -22,6 +22,7 @@ export default function App() {
     });
     setTodos(newArray);
   }
+  
 
   return (
     <div>
