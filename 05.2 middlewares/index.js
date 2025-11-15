@@ -2,7 +2,6 @@ import express from "express";
 const app = express();
 
 let requestCount = 0;
-
 /*
 function loggerMiddleware(req, res, next){
     console.log("method is: " + req.method);
@@ -10,7 +9,7 @@ function loggerMiddleware(req, res, next){
     console.log("route is: " + req.url);
     console.log(new Date());
 
-    next();
+    next(); // calls next function
 }
 app.use(loggerMiddleware);
 */
