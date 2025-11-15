@@ -12,7 +12,7 @@ const { JWT_SECRET } = require("../config");
 
 
 const signupBody = zod.object({
-    username: zod.string().email(),
+    username: zod.string(),
     password: zod.string(),
     firstName: zod.string(),
     lastName: zod.string()
@@ -66,7 +66,7 @@ router.post("/signup", async(req, res) => {
 
 
 const signinBody = zod.object({
-    username: zod.string().email(),
+    username: zod.string(),
 	password: zod.string()
 })
 
