@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const {authMiddleware} = require("../middleware")
 
 const zod = require("zod");
-const { User } = require("../db");
+const { User, Account } = require("../db");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
@@ -42,6 +43,12 @@ router.post("/signup", async(req, res) => {
         lastName: req.body.lastName
     })
     const userId = user._id;
+
+    await Account.create({
+        userId,
+        balance: 1 + Math.random() * 10000
+    })
+
     const token = jwt.sign({
         userId
     }, JWT_SECRET)
@@ -92,5 +99,66 @@ router.post("/signin", async (req, res) => {
         message: "Error while logging in"
     })
 })
+
+
+
+
+
+const updateBody = zod.object({
+	password: zod.string().optional(),
+    firstName: zod.string().optional(),
+    lastName: zod.string().optional(),
+})
+
+router.put("/", authMiddleware, async (req, res) => {
+    const { success } = updateBody.safeParse(req.body);
+    if (!success) {
+        res.status(411).json({
+            message: "Error while updating information"
+        })
+    }
+
+	await User.updateOne({ 
+        _id: req.userId 
+    }, req.body);
+	
+    res.json({
+        message: "Updated successfully"
+    })
+})
+
+
+
+
+
+
+// to get all the users by searching (the search text maybe a part from firstName or lastName and uncomplete)
+router.get("/bulk", async (req, res) => {
+    const filter = req.query.filter || "";
+
+    const users = await User.find({
+        $or: [{
+            firstName: {
+                "$regex": filter
+            }
+        }, {
+            lastName: {
+                "$regex": filter
+            }
+        }]
+    })
+
+    res.json({
+        user: users.map(user => ({
+            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            _id: user._id
+        }))
+    })
+})
+
+
+
 
 module.exports = router;
