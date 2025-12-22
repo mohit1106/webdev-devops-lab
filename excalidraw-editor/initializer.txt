@@ -1,0 +1,11 @@
+npm i -g pnpm
+npx create-turbo@latest
+
+pnpm install
+pnpm run dev
+
+npm init -y        inside backend folders in apps
+import typescript config from packages in both backend apps
+add the same package as dependency in packages.json of backend apps
+pnpm install
+
