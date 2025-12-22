@@ -1,0 +1,3 @@
+[submodule "excalidraw-editor"]
+	path = excalidraw-editor
+	url = https://github.com/mohit1106/excalidraw-realtime-editor.git
