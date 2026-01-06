@@ -1,0 +1,21 @@
+digitakocean
+
+1.  create droplet
+2.  choose region and data centre
+3.  cho0se OS and version
+4.  choose size and cpu options
+5.  choose authentication method and hostname
+
+
+connecting with password
+1.  ssh root@ipv4address
+2.  put password and all
+
+
+
+connecting with ssh keypair
+ssh-keygen                     generate new public private key pair and enter the path and optionally passphrase
+cd /c/Users/mohit/.ssh/        this folder stores all pub ad pvt keypairs by default
+cat ~/.ssh/id_rsa.pub          have all public keys
+cat ~/.ssh/id_rsa              have all private keys
+cat ~/.ssh/authorized_keys     check public authorized keys on machine

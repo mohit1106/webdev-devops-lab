@@ -1,3 +1,12 @@
+npx serve - local network address to serve all the files in a folder
+
+
+
+
+
+
+
+
 Deploying backend apps using aws ec2 and nginx reverse proxies
 
 
@@ -6,6 +15,7 @@ Deploying backend apps using aws ec2 and nginx reverse proxies
 create an instance on aws ec2
 select instance type
 key pair authentication system 
+    itwill give the private key in downloads and put public key in ec2 machine
     whoever have the private key on their device only him can ssh into the machine
 
 network setting:
@@ -32,7 +42,8 @@ ssh into the machine:
     notion image
     
     4. Install Node.js💡
-    https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+                    source - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
     after that:
         export NVM_DIR="$HOME/.nvm"
         source ~/.bashrc

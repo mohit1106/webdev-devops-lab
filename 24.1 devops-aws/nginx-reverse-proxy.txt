@@ -1,3 +1,7 @@
+nginx will run on port 80, and will forward the request to desired services based on the url from which reqest came
+
+
+
 Installing nginx on ecr machine:
     sudo apt update
     sudo apt install nginx
@@ -6,11 +10,14 @@ Installing nginx on ecr machine:
 
 for directing different domains on different ports from nginx(port 80):
     get domain name from squarespace or goDaddy
-    add your public ip to domain address
-    now, now http://domain-address will go to domain-address:80, for now, NGINX is running on 80
+    add your ec2 public ip to new records(as many services needed) in dns of domain address
+    (let dns is mohit.com, then add records for shoesapp and clothesapp as host names)
+
+    now http://shoesapp.mohit.com (let port 8081) and  http://clothesapp.mohit.com (let port 8080) will go to domain-address:80, for now, NGINX is running on 80
 
     configure NGINX to forward the requests from diffeent domains to different port, but by defult requests will come to port 80
     then NGINX will forward the req to destination port by seeing the url-address:
+        port 8080 and 8081 arent needed to be opened in ec2 security groups
         
         1. open the ec2 machine by SShing 
         
@@ -57,7 +64,7 @@ for directing different domains on different ports from nginx(port 80):
         NGINX will forward each req from shoesapp.mohit.com to port 8081.
 
         4. for reloadin:
-        sudo nginx -s reload
+        sudo nginx -s reload  
 
 
         Start the Backend server
