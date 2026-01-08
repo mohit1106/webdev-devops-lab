@@ -1,0 +1,19 @@
+-- run the docker daemon
+-- installing redis/redis-stack on docker:
+    docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+-- docker ps   =   gets container id of redis stack
+-- docker exec -it <id> bash   =   run bash inside the redis container
+-- redis-cli    =   connects the terminal with redis server
+
+
+-- redis data types : https://redis.io/docs/latest/develop/data-types/
+
+
+redis port - 6379
+redis gui port - 8001
+
+
+
+
+--------- implementing in nodejs ------------
+npm i ioredis
