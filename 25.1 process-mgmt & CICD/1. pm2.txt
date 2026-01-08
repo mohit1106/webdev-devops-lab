@@ -5,6 +5,7 @@
     sudo npm i -g pm2
     pm2 start index.js
 
+
     commands to understand:
         curl localhost:3000 - similar to postman but for terminal
         lsof -i :3000 -  this gives you the process id for a given port
