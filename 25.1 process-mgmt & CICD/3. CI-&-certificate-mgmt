@@ -1,0 +1,30 @@
+Deploying a monorepo (http, ws, prisma, postgres, next)
+env variables
+dev vs prod environments, periodic releases
+Testing in CI pipelines
+Cert management
+CD pipeline to refresh certs every month
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
