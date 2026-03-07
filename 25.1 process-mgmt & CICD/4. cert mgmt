@@ -1,0 +1,19 @@
+using certbot certificate management (lets encrypt) for secure connection.
+https://certbot.eff.org/instructions?ws=nginx&os=snap
+
+
+
+
+1. SSH into your ec2 machine and make sure nginx is running.
+2. Install Certbot:     sudo snap install --classic certbot
+    Run this command on the command line on the machine to install Certbot.
+
+3. Prepare the Certbot command
+    Execute the following instruction on the command line on the machine to ensure that the certbot command can be run.
+    sudo ln -s /snap/bin/certbot /usr/local/bin/certbot
+
+4. run:    sudo certbot --nginx
+    select all or selected domains for which you need certificate
+
+certbot automatically modify the nginx conf to listen on https port 443.
+for http port 80 itll automatically redirect to 443.

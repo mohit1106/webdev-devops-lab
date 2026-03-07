@@ -1,0 +1,18 @@
+to run mongo image:
+    docker run -d -p 27017:27017 mongo
+to show all images:
+    docker images
+to delete an image:
+    docker rmi mongo --force
+to show all running container:
+    docker 
+to kill a container:
+    docker kill <container-id>
+to execute something inside container:
+    docker exec -it <id> sh      --- will run the shell command interactively in container
+    
+to craete an image:
+    docker build -t <any-name> .
+
+passing env variable while running:
+    docker run -p 3000:3000 -e DATABASE_URL="postgres://avne=require" image_name
