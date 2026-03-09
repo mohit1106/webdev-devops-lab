@@ -10,7 +10,8 @@ to kill a container:
     docker kill <container-id>
 to execute something inside container:
     docker exec -it <id> sh      --- will run the shell command interactively in container
-    
+    docker exec <container_name_or_id> ls /path/to/directory         --- List all contents of a container folder
+
 to craete an image:
     docker build -t <any-name> .
 
