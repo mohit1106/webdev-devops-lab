@@ -2,13 +2,23 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY . .
-
+COPY ./package.json ./package.json
+COPY ./package-lock.json ./package-lock.json
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
-# cmd runs when the container starts not while building the image
+
+
+
+
+
+
+
+
+# cmd runs when the container starts not while building the image, all above runs while building image
 CMD ["node", "index.js"]
 
 

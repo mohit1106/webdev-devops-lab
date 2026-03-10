@@ -1,0 +1,3 @@
+docker volume create db_volume
+docker run -v db_volume:/data/db -p 27017:27017 mongo
+docker volume ls  --- shows all volumes
